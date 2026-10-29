@@ -893,10 +893,9 @@ AFFECT [[1224665461898798997]]
 				}
 				function applyPresetLayer(target) {
 					if (target === undefined || target === null || target < 0 || !sceneController) return;
-					if (target > 4) target = 4;
 					var layerCount = 1;
 					try { layerCount = Math.max(sceneLayersModel.count, 1); } catch (e) {}
-					for (var i = layerCount; i <= target; i++) sceneController.addLayer();
+					if (target >= layerCount) return;
 					if (sceneController.currentLayer !== target) sceneController.setCurrentLayer(target);
 				}
 				/* --- end per-preset layers --- */

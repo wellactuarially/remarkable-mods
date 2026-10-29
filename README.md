@@ -3,9 +3,8 @@
 ## floating-layers: per-preset layers for FouzR's floating toolbar
 
 A fork of [FouzR's floating toolbar](https://github.com/FouzR/xovi-extensions) (`floating.qmd`) for xovi + qt-resource-rebuilder.
-Each full pen preset on the bar saves the layer you were on when you added it. Tapping the preset switches pen *and* layer.
-If the page doesn't have that layer, only the pen changes; no layer is created. Presets saved before the patch keep working
-and never switch layer.
+Each full pen preset on the bar saves the layer you were on when you added it. Tapping the preset switches pen *and* layer
+(missing layers are created, up to 5). Presets saved before the patch keep working and never switch layer.
 
 | File | What it is |
 | --- | --- |

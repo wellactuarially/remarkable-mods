@@ -4,8 +4,7 @@ Adds per-preset layers to FouzR's floating toolbar (floating.qmd).
 
 Each full pen preset on the floating bar (tool + colour + thickness) also
 remembers the layer you were on when you added it. Tapping the preset
-switches pen *and* layer, if that layer exists on the current page (otherwise
-only the pen changes). Presets saved before this patch keep working and
+switches pen *and* layer. Presets saved before this patch keep working and
 simply don't change layer.
 
 Usage:
@@ -47,9 +46,10 @@ HELPERS = """
 				}
 				function applyPresetLayer(target) {
 					if (target === undefined || target === null || target < 0 || !sceneController) return;
+					if (target > 4) target = 4;
 					var layerCount = 1;
 					try { layerCount = Math.max(sceneLayersModel.count, 1); } catch (e) {}
-					if (target >= layerCount) return;
+					for (var i = layerCount; i <= target; i++) sceneController.addLayer();
 					if (sceneController.currentLayer !== target) sceneController.setCurrentLayer(target);
 				}
 				/* --- end per-preset layers --- */
